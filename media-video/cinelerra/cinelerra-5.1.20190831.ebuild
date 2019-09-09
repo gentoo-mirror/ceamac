@@ -92,7 +92,6 @@ src_install() {
 	dohtml -a png,html,texi,sdw -r doc/*
 
 	rm -rf "${D}"/usr/include
-	dosym ../../bin/mpeg2enc /usr/$(get_libdir)/${PN}/mpeg2enc.plugin
 
 	find "${D}" -name '*.la' -type f -delete || die
 }

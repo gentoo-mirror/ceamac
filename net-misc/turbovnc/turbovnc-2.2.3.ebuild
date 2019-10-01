@@ -29,5 +29,5 @@ src_configure() {
 
 src_install() {
 	cmake-utils_src_install
-	rm -f "${D}/usr/share/man/man1/Xserver.1*"
+	find "${D}/usr/share/man/man1/" -name Xserver.1\* -print0 | xargs -0 rm
 }

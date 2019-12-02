@@ -48,10 +48,7 @@ src_install() {
 		doins "${S}/src/${EGO_PN}/contrib/systemd/"{ryzen-stabilizator@boot.service,ryzen-stabilizator@resume.service,ryzen-stabilizator.service,ryzen-stabilizator.target}
 	)
 
-	(
-		insinto /etc/init.d
-		doins "${FILESDIR}/ryzen-stabilizator"
-	)
+	doinitd "${FILESDIR}/ryzen-stabilizator"
 
 	dodoc "${S}/src/${EGO_PN}/README.md"
 	dobin "${S}/bin/ryzen-stabilizator"

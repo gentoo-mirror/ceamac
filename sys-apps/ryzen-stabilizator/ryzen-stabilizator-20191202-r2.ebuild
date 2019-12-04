@@ -32,9 +32,9 @@ src_compile() {
 src_install() {
 	(
 		mkdir -p "etc/modules-load.d"
-		echo msr > "etc/modules-load.d/ryzen-stabilizator"
+		echo msr > "etc/modules-load.d/ryzen-stabilizator.conf"
 		insinto /etc/modules-load.d
-		doins etc/modules-load.d/ryzen-stabilizator
+		doins etc/modules-load.d/ryzen-stabilizator.conf
 	)
 
 	(

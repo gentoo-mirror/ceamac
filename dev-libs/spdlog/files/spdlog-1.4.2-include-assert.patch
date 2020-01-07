@@ -1,0 +1,21 @@
+--- a/include/spdlog/details/pattern_formatter-inl.h	2019-10-06 13:13:26.000000000 +0300
++++ b/include/spdlog/details/pattern_formatter-inl.h	2020-01-07 10:05:01.333785629 +0200
+@@ -24,6 +24,7 @@
+ #include <thread>
+ #include <utility>
+ #include <vector>
++#include <cassert>
+ 
+ namespace spdlog {
+ namespace details {
+--- a/include/spdlog/details/thread_pool-inl.h	2019-10-06 13:13:26.000000000 +0300
++++ b/include/spdlog/details/thread_pool-inl.h	2020-01-07 10:05:01.330452318 +0200
+@@ -9,6 +9,8 @@
+ 
+ #include "spdlog/common.h"
+ 
++#include <cassert>
++
+ namespace spdlog {
+ namespace details {
+ 

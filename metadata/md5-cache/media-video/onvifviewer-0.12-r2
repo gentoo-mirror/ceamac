@@ -1,0 +1,14 @@
+BDEPEND=dev-util/ninja >=dev-util/cmake-3.9.6
+DEFINED_PHASES=compile configure install postinst postrm prepare test
+DEPEND=kde-frameworks/extra-cmake-modules:5 kde-frameworks/kirigami:5 net-libs/kdsoap:5 dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 dev-qt/qtdbus:5 dev-qt/qtxml:5 dev-qt/qtnetwork:5 dev-qt/qtdeclarative:5 dev-qt/qtsvg:5 kde-frameworks/kcoreaddons:5 kde-frameworks/kauth:5 kde-frameworks/kconfig:5 kde-frameworks/kcodecs:5 kde-frameworks/ki18n:5 kde-frameworks/kconfigwidgets:5 kde-frameworks/kxmlgui:5
+DESCRIPTION=Viewer for IP cameras ONVIF
+EAPI=7
+HOMEPAGE=https://gitlab.com/caspermeijn/onvifviewer/
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-3
+RDEPEND=kde-frameworks/extra-cmake-modules:5 kde-frameworks/kirigami:5 net-libs/kdsoap:5 dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 dev-qt/qtdbus:5 dev-qt/qtxml:5 dev-qt/qtnetwork:5 dev-qt/qtdeclarative:5 dev-qt/qtsvg:5 kde-frameworks/kcoreaddons:5 kde-frameworks/kauth:5 kde-frameworks/kconfig:5 kde-frameworks/kcodecs:5 kde-frameworks/ki18n:5 kde-frameworks/kconfigwidgets:5 kde-frameworks/kxmlgui:5
+RESTRICT=primaryuri
+SLOT=0
+SRC_URI=https://gitlab.com/caspermeijn/onvifviewer/-/archive/v0.12/onvifviewer-v0.12.tar.gz
+_eclasses_=cmake-utils	be72eac95bd029ad1d81d5d656c3c83b	eutils	fcb2aa98e1948b835b5ae66ca52868c5	flag-o-matic	cabe101302b461f32ecbc3767dfb9e23	multilib	1d91b03d42ab6308b5f4f6b598ed110e	multiprocessing	cac3169468f893670dac3e7cb940e045	ninja-utils	132cbb376048d079b5a012f5467c4e7f	toolchain-funcs	512eb3367f507ebaa1d1d43ab7d66e6c	xdg-utils	ff2ff954e6b17929574eee4efc5152ba
+_md5_=37a714720a7000356f710c407313270a

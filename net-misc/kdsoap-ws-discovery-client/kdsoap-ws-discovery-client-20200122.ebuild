@@ -6,7 +6,7 @@ inherit cmake-utils
 
 COMMIT_SHA1=0521717c37f26fc22158e0c986f7c8b41b3fb0ee
 
-DESCRIPTION="A fast replacement for tigetvnc"
+DESCRIPTION="WS-Discovery client library based on the KDSoap library"
 HOMEPAGE=https://caspermeijn.gitlab.io/kdsoap-ws-discovery-client
 SRC_URI=https://gitlab.com/caspermeijn/kdsoap-ws-discovery-client/-/archive/master/${PN}-${COMMIT_SHA1}.tar.gz
 RESTRICT="primaryuri"

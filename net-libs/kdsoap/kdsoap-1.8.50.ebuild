@@ -6,7 +6,7 @@ inherit cmake-utils
 
 COMMIT_SHA1=56fd2ade939baac43a2a303132c620587b5496bf
 
-DESCRIPTION="A fast replacement for tigetvnc"
+DESCRIPTION="A Qt-based client-side and server-side SOAP component"
 HOMEPAGE="https://github.com/KDAB/KDSoap/"
 SRC_URI="https://github.com/KDAB/KDSoap/archive/${COMMIT_SHA1}.tar.gz -> ${P}.tar.gz"
 RESTRICT="primaryuri"

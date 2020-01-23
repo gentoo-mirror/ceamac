@@ -4,7 +4,7 @@
 EAPI=7
 inherit cmake-utils
 
-DESCRIPTION="A fast replacement for tigetvnc"
+DESCRIPTION="A Qt-based client-side and server-side SOAP component"
 HOMEPAGE="https://github.com/KDAB/KDSoap/"
 SRC_URI="https://github.com/KDAB/KDSoap/releases/download/${P}/${P}.tar.gz"
 RESTRICT="primaryuri"

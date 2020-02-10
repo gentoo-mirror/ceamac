@@ -1,6 +1,6 @@
 dev-libs/spdlog 1.4.2: Very fast, header only, C++ logging library
 media-video/cfourcc 0.1.3.1: console fourcc changer
-media-video/cinelerra 5.1.20191130 5.1.20191231: The most advanced non-linear video editor and compositor
+media-video/cinelerra 5.1.20191231 5.1.20200131: The most advanced non-linear video editor and compositor
 media-video/onvifviewer 0.12-r2 0.12-r3: Viewer for IP cameras ONVIF
 net-libs/kdsoap 1.8.0-r1 1.8.50: A Qt-based client-side and server-side SOAP component
 net-misc/kdsoap-ws-discovery-client 20200122: WS-Discovery client library based on the KDSoap library

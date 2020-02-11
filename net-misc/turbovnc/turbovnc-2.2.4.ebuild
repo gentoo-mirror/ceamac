@@ -11,17 +11,17 @@ RESTRICT="primaryuri"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 IUSE=""
 
 DEPEND="virtual/jdk:1.8
-	media-libs/libjpeg-turbo[java]
+	>=media-libs/libjpeg-turbo-2.0.0[java]
 	!net-misc/tigervnc"
 RDEPEND="${DEPEND}"
 
 src_configure() {
 	local mycmakeargs=(
-		-DTJPEG_JAR=/usr/share/classes/turbojpeg.jar
+		-DTJPEG_JAR=/usr/share/java/turbojpeg.jar
 		-DTJPEG_JNILIBRARY=/usr/lib64/libturbojpeg.so
 	)
 	cmake-utils_src_configure

@@ -6,18 +6,19 @@ inherit cmake-utils
 
 DESCRIPTION="Viewer for IP cameras ONVIF"
 HOMEPAGE="https://gitlab.com/caspermeijn/onvifviewer/"
-SRC_URI="https://gitlab.com/caspermeijn/onvifviewer/-/archive/v${PV}/${PN}-v${PV}.tar.gz"
+COMMITHASH=c0ac7f6bb62333dedf1fb59c0d7c9351dfc1e0b1
+SRC_URI="https://gitlab.com/caspermeijn/onvifviewer/-/archive/${COMMITHASH}/${PN}-${COMMITHASH}.tar.gz"
 RESTRICT="primaryuri"
 
 LICENSE="GPL-3"
 SLOT="0"
-KEYWORDS="~amd64 ~x86"
+KEYWORDS="~amd64"
 IUSE=""
 
 DEPEND="kde-frameworks/extra-cmake-modules:5
 	kde-frameworks/kirigami:5
-	net-libs/kdsoap:5
-	net-misc/kdsoap-ws-discovery-client:5
+	>=net-libs/kdsoap-1.8.50
+	net-libs/kdsoap-ws-discovery-client
 	dev-qt/qtcore:5
 	dev-qt/qtgui:5
 	dev-qt/qtwidgets:5
@@ -35,7 +36,7 @@ DEPEND="kde-frameworks/extra-cmake-modules:5
 	kde-frameworks/kxmlgui:5"
 RDEPEND="${DEPEND}"
 
-S="${WORKDIR}/${PN}-v${PV}"
+S="${WORKDIR}/${PN}-${COMMITHASH}"
 
 pkg_postinst()
 {

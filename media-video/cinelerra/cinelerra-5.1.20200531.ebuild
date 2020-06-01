@@ -39,7 +39,7 @@ RDEPEND="media-libs/a52dec:=
 		x11-libs/libXxf86vm:=
 		x11-libs/libva:=
 		virtual/ffmpeg
-	|| ( media-video/ffmpeg:0[postproc(-)] media-libs/libpostproc )
+		media-video/ffmpeg:0[postproc(-)]
 	virtual/jpeg:0
 	alsa? ( media-libs/alsa-lib:= )
 		ieee1394? (

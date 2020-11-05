@@ -1,4 +1,4 @@
-# Copyright 2019 Gentoo Authors
+# Copyright 2020 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=6
@@ -38,7 +38,6 @@ RDEPEND="media-libs/a52dec:=
 		x11-libs/libXvMC:=
 		x11-libs/libXxf86vm:=
 		x11-libs/libva:=
-		virtual/ffmpeg
 		media-video/ffmpeg:0[postproc(-)]
 	virtual/jpeg:0
 	alsa? ( media-libs/alsa-lib:= )

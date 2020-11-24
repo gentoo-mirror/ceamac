@@ -40,6 +40,14 @@ src_prepare() {
 	eautoreconf
 }
 
+src_install() {
+	emake DESTDIR="${D}" install
+	dodoc NEWS README TODO AUTHORS COPYING ChangeLog
+
+	rm -rf "${D}"/usr/share/mime
+	find "${D}" -name '*.la' -type f -delete || die
+}
+
 pkg_postinst()
 {
 	xdg_desktop_database_update

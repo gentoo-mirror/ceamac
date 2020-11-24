@@ -42,7 +42,7 @@ src_prepare() {
 
 src_install() {
 	emake DESTDIR="${D}" install
-	dodoc NEWS README TODO AUTHORS COPYING ChangeLog
+	dodoc NEWS README TODO AUTHORS ChangeLog
 
 	rm -rf "${D}"/usr/share/mime
 	find "${D}" -name '*.la' -type f -delete || die

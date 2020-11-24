@@ -63,7 +63,7 @@ src_configure() {
 
 src_install() {
 	emake DESTDIR="${D}" install
-	dodoc AUTHORS COPYING NEWS README TODO
+	dodoc AUTHORS NEWS README TODO
 
 	echo "LDPATH=\"/usr/lib64/synfig/modules\"" > "${T}/99synfig"
 	doenvd "${T}/99synfig"

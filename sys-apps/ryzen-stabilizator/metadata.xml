@@ -5,7 +5,4 @@
 	<email>ceamac.paragon@gmail.com</email>
 	<description>Primary maintainer</description>
 </maintainer>
-<longdescription>
-	Enable or disable some features for Ryzen processors
-</longdescription>
 </pkgmetadata>

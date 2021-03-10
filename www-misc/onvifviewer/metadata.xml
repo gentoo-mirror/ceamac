@@ -6,6 +6,6 @@
 	<description>Primary maintainer</description>
 </maintainer>
 <longdescription>
-IP cam viewer for cameras supporting ONVIF
+The goal of this project is to replace the proprietary app that is needed to configure and view many IP cameras. The ONVIF protocol can be used to view and configure many types of cameras and is a open standard that can be implemented using standard SOAP libraries.
 </longdescription>
 </pkgmetadata>

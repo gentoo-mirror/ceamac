@@ -5,4 +5,7 @@
 	<email>ceamac.paragon@gmail.com</email>
 	<description>Primary maintainer</description>
 </maintainer>
+<use>
+	<flag name="opencl">Enable OpenCL</flag>
+</use>
 </pkgmetadata>

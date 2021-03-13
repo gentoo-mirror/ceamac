@@ -1,0 +1,24 @@
+--- a/m4/subs.m4	2020-11-13 12:21:45.000000000 +0200
++++ b/m4/subs.m4	2021-03-13 19:19:48.626353955 +0200
+@@ -77,16 +77,16 @@
+ 
+ 	case "$debug" in
+ 		yes)
+-			debug_flags="-D_DEBUG -g -O0"
++			debug_flags="-D_DEBUG"
+ 			BIGOBJ_FLAGS=""
+ 			($CC --version | grep -q mingw) && BIGOBJ_FLAGS="-Wa,-mbig-obj"
+-			CXXFLAGS="`echo $CXXFLAGS | sed s:-O.::` $debug_flags -fno-inline $BIGOBJ_FLAGS"
+-			CFLAGS="`echo $CFLAGS | sed s:-O.::` $debug_flags"
++			CXXFLAGS="${CXXFLAGS} $debug_flags -fno-inline $BIGOBJ_FLAGS"
++			CFLAGS="${CFLAGS} $debug_flags"
+ 		;;
+ 		no|*)
+ 			debug_flags="-DNDEBUG"
+-			CXXFLAGS="`echo $CXXFLAGS | sed 's:-g[[a-z-]]*\s::g' | sed 's:-g[[a-z-]]*$::'` $debug_flags"
+-			CFLAGS="`echo $CFLAGS | sed 's:-g[[a-z-]]*\s::g' | sed 's:-g[[a-z-]]*$::'` $debug_flags"
++			CXXFLAGS="${CXXFLAGS} $debug_flags"
++			CFLAGS="${CFLAGS} $debug_flags"
+ 		;;
+ 	esac
+ 

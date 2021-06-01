@@ -1,0 +1,23 @@
+Keep sed from mangling our CFLAGS
+especially -frecord-gcc-flags, which was half removed because it contains -g
+
+--- a/m4/subs.m4
++++ b/m4/subs.m4
+@@ -77,13 +77,13 @@
+ 	case "$debug" in
+ 		yes)
+ 			debug_flags="-D_DEBUG -g -O0"
+-			CXXFLAGS="`echo $CXXFLAGS | sed s:-O.::` $debug_flags -fno-inline"
+-			CFLAGS="`echo $CFLAGS | sed s:-O.::` $debug_flags"
++			CXXFLAGS="${CXXFLAGS} ${debug_flags}"
++			CFLAGS="${CFLAGS} ${debug_flags}"
+ 		;;
+ 		no|*)
+ 			debug_flags="-DNDEBUG"
+-			CXXFLAGS="`echo $CXXFLAGS | sed 's:-g[[a-z-]]*\s::g' | sed 's:-g[[a-z-]]*$::'` $debug_flags"
+-			CFLAGS="`echo $CFLAGS | sed 's:-g[[a-z-]]*\s::g' | sed 's:-g[[a-z-]]*$::'` $debug_flags"
++			CXXFLAGS="${CXXFLAGS} ${debug_flags}"
++			CFLAGS="${CFLAGS} ${debug_flags}"
+ 		;;
+ 	esac
+ 

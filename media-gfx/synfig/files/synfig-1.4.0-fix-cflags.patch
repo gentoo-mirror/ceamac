@@ -1,3 +1,6 @@
+Keep sed from mangling our CFLAGS
+especially -frecord-gcc-flags, which was half removed because it contains -g
+
 --- a/m4/subs.m4	2020-11-13 12:21:45.000000000 +0200
 +++ b/m4/subs.m4	2021-03-13 19:19:48.626353955 +0200
 @@ -77,16 +77,16 @@

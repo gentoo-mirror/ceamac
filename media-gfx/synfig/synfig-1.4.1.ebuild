@@ -45,7 +45,7 @@ RDEPEND="${DEPEND}
 	"
 
 PATCHES=(
-	"${FILESDIR}"/${P}-fix-cflags.patch
+	"${FILESDIR}"/${PN}-1.4.0-fix-cflags.patch
 )
 
 src_prepare() {

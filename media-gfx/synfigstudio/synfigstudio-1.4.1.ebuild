@@ -1,4 +1,4 @@
-# Copyright 1999-2020 Gentoo Authors
+# Copyright 1999-2021 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 # Original ebuild By eroen <eroen-overlay@occam.eroen.eu>, 2018
@@ -33,9 +33,11 @@ DEPEND="${RDEPEND}
 	virtual/pkgconfig
 	"
 
-src_prepare() {
-	eapply_user
+PATCHES=(
+	"${FILESDIR}"/${P}-fix-cflags.patch
+)
 
+src_prepare() {
 	default
 	eautoreconf
 }
@@ -44,8 +46,9 @@ src_install() {
 	emake DESTDIR="${D}" install
 	dodoc NEWS README TODO AUTHORS ChangeLog
 
-	rm -rf "${D}"/usr/share/mime
-	find "${D}" -name '*.la' -type f -delete || die
+	mv "${ED}"/usr/share/appdata "${ED}"/usr/share/metainfo || die
+	rm -r "${ED}"/usr/share/mime || die
+	find "${ED}" -name '*.la' -type f -delete || die
 }
 
 pkg_postinst()

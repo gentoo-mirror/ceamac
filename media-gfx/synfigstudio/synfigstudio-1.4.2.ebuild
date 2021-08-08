@@ -29,12 +29,12 @@ RDEPEND="
 	sys-devel/gettext
 	"
 DEPEND="${RDEPEND}
-	dev-cpp/ETL
+	~dev-cpp/ETL-${PV}
 	virtual/pkgconfig
 	"
 
 PATCHES=(
-	"${FILESDIR}"/${P}-fix-cflags.patch
+	"${FILESDIR}"/${PN}-1.4.1-fix-cflags.patch
 )
 
 src_prepare() {
@@ -48,7 +48,7 @@ src_install() {
 
 	mv "${ED}"/usr/share/appdata "${ED}"/usr/share/metainfo || die
 	rm -r "${ED}"/usr/share/mime || die
-	find "${ED}" -name '*.la' -type f -delete || die
+	find "${ED}" -name '*.la' -delete || die
 }
 
 pkg_postinst()

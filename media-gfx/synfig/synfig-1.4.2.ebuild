@@ -70,6 +70,8 @@ src_install() {
 	emake DESTDIR="${D}" install
 	dodoc AUTHORS NEWS README TODO
 
-	echo "LDPATH=\"/usr/lib64/synfig/modules\"" > "${T}/99synfig"
+	find "${ED}" -name '*.la' -delete || die
+
+	echo "LDPATH=\"${EPREFIX}/usr/$(get_libdir)/synfig/modules\"" > "${T}/99synfig"
 	doenvd "${T}/99synfig"
 }

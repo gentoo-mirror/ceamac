@@ -18,7 +18,7 @@ DEPEND=""
 RDEPEND="${DEPEND}"
 
 PATCHES=(
-	"${FILESDIR}"/${P}-fix-gcc-flags.patch
+	"${FILESDIR}"/${PN}-1.4.1-fix-gcc-flags.patch
 )
 
 src_prepare() {

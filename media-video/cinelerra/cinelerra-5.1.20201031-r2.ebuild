@@ -19,39 +19,41 @@ RDEPEND="media-libs/a52dec:=
 	media-libs/faad2:=
 	>=media-libs/freetype-2
 	media-libs/fontconfig
-		media-libs/libdv:=
-		>=media-libs/libogg-1.2:=
-		media-libs/libpng:0=
-		media-libs/libsndfile:=
-		>=media-libs/libtheora-1.1:=
-		>=media-libs/libvorbis-1.3:=
-		>=media-libs/openexr-1.5:=
-		media-libs/tiff:0=
-		media-libs/x264:=
-		media-sound/lame:=
-		>=media-video/mjpegtools-2
-		>=sci-libs/fftw-3
-		x11-libs/libX11:=
-		x11-libs/libXext:=
-		x11-libs/libXft:=
-		x11-libs/libXv:=
-		x11-libs/libXvMC:=
-		x11-libs/libXxf86vm:=
-		x11-libs/libva:=
-		x11-libs/libvdpau:=
-		media-video/ffmpeg:0[postproc(-)]
-	virtual/jpeg:0
-	alsa? ( media-libs/alsa-lib:= )
-		ieee1394? (
-	media-libs/libiec61883:=
-	>=sys-libs/libraw1394-1.2.0:=
-	>=sys-libs/libavc1394-0.5.0:=
-	)
+	media-libs/libdv:=
+	>=media-libs/libogg-1.2:=
+	media-libs/libpng:0=
+	media-libs/libsndfile:=
+	>=media-libs/libtheora-1.1:=
+	>=media-libs/libvorbis-1.3:=
+	>=media-libs/openexr-1.5:=
+	media-libs/tiff:0=
+	media-libs/x264:=
+	media-sound/lame:=
+	media-video/ffmpeg:0[postproc(-)]
+	>=media-video/mjpegtools-2
+	>=sci-libs/fftw-3
+	x11-libs/libva:=
+	x11-libs/libvdpau:=
+	x11-libs/libX11:=
+	x11-libs/libXext:=
+	x11-libs/libXft:=
+	x11-libs/libXinerama:=
+	x11-libs/libXv:=
+	x11-libs/libXvMC:=
+	x11-libs/libXxf86vm:=
 	virtual/glu
+	virtual/jpeg:0
 	virtual/opengl
+	alsa? ( media-libs/alsa-lib:= )
+	ieee1394? (
+		media-libs/libiec61883:=
+		>=sys-libs/libavc1394-0.5.0:=
+		>=sys-libs/libraw1394-1.2.0:=
+	)
 	openexr? ( media-libs/openexr:= )"
 DEPEND="${RDEPEND}
 	app-arch/xz-utils
+	dev-lang/yasm
 	virtual/pkgconfig"
 BDEPEND=""
 
@@ -84,7 +86,7 @@ src_configure() {
 		$(use_with shuttle) \
 		$(use_with lv2) \
 		$(use_with openexr) \
-		--with-plugin-dir=/usr/$(get_libdir)/${PN} \
+		--with-plugin-dir="${EPREFIX}/usr/$(get_libdir)/${PN}" \
 		${myconf}
 }
 

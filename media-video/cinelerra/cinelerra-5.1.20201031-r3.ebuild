@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
-inherit autotools eutils multilib flag-o-matic
+inherit autotools flag-o-matic
 
 DESCRIPTION="The most advanced non-linear video editor and compositor"
 HOMEPAGE="http://www.cinelerra-gg.org/"
@@ -12,45 +12,65 @@ RESTRICT="primaryuri"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="alsa debug ieee1394 oss dvb v4l shuttle usb lv2 openexr"
+IUSE="alsa debug dvb ieee1394 lv2 oss shuttle usb v4l"
 
-RDEPEND="media-libs/a52dec:=
-	media-libs/faac:=
-	media-libs/faad2:=
+RDEPEND="
+	app-arch/bzip2
+	app-arch/xz-utils
+	media-libs/dav1d:=
+	media-libs/flac
 	>=media-libs/freetype-2
 	media-libs/fontconfig
-	media-libs/libdv:=
-	>=media-libs/libogg-1.2:=
+	media-libs/ilmbase:=
+	media-libs/jbigkit:=
+	media-libs/libaom:=
+	media-libs/libdv
+	>=media-libs/libogg-1.2
 	media-libs/libpng:0=
-	media-libs/libsndfile:=
-	>=media-libs/libtheora-1.1:=
-	>=media-libs/libvorbis-1.3:=
+	media-libs/libsndfile
+	>=media-libs/libtheora-1.1
+	>=media-libs/libvorbis-1.3
+	media-libs/libvpx:=
+	media-libs/libwebp:=
 	>=media-libs/openexr-1.5:=
-	media-libs/tiff:0=
-	media-libs/x264:=
-	media-sound/lame:=
-	media-video/ffmpeg:0[postproc(-)]
-	>=media-video/mjpegtools-2
-	>=sci-libs/fftw-3
+	media-libs/opus
+	media-libs/tiff
+	media-sound/pulseaudio
+	sci-libs/fftw:3.0=
+	sys-libs/zlib
+	sys-process/numactl
 	x11-libs/libva:=
-	x11-libs/libvdpau:=
-	x11-libs/libX11:=
-	x11-libs/libXext:=
-	x11-libs/libXft:=
-	x11-libs/libXinerama:=
-	x11-libs/libXv:=
-	x11-libs/libXvMC:=
-	x11-libs/libXxf86vm:=
+	x11-libs/libvdpau
+	x11-libs/libX11
+	x11-libs/libXext
+	x11-libs/libXfixes
+	x11-libs/libXft
+	x11-libs/libXinerama
+	x11-libs/libXv
 	virtual/glu
 	virtual/jpeg:0
 	virtual/opengl
-	alsa? ( media-libs/alsa-lib:= )
+	virtual/libusb:1
+	alsa? ( media-libs/alsa-lib )
 	ieee1394? (
 		media-libs/libiec61883:=
 		>=sys-libs/libavc1394-0.5.0:=
 		>=sys-libs/libraw1394-1.2.0:=
 	)
-	openexr? ( media-libs/openexr:= )"
+	lv2? (
+		dev-libs/atk
+		dev-libs/glib:2
+		dev-libs/serd
+		dev-libs/sord
+		media-libs/harfbuzz:=
+		media-libs/lilv
+		media-libs/sratom
+		media-libs/suil
+		x11-libs/cairo
+		x11-libs/gdk-pixbuf:2
+		x11-libs/gtk+:2
+		x11-libs/pango
+	)"
 DEPEND="${RDEPEND}
 	app-arch/xz-utils
 	dev-lang/yasm
@@ -85,7 +105,7 @@ src_configure() {
 		$(use_with usb shuttle_usb) \
 		$(use_with shuttle) \
 		$(use_with lv2) \
-		$(use_with openexr) \
+		--with-openexr \
 		--with-plugin-dir="${EPREFIX}/usr/$(get_libdir)/${PN}" \
 		${myconf}
 }

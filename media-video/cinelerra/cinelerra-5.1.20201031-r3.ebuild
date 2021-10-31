@@ -82,6 +82,8 @@ S="${WORKDIR}/cinelerra-5.1"
 src_prepare() {
 	default
 	eautoreconf
+
+	cp "${FILESDIR}"/openexr-2.4.1.patch1 ./thirdparty/src/ || die
 }
 
 src_configure() {

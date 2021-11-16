@@ -5,7 +5,7 @@
 
 EAPI=7
 
-inherit autotools eutils multilib flag-o-matic
+inherit autotools
 
 # Original TODO from bgo-overlay
 # Todo: enable OpenGL (currently not compiling)
@@ -18,30 +18,46 @@ SRC_URI="https://github.com/synfig/synfig/releases/download/v${PV}/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="imagemagick ffmpeg dv openexr truetype jpeg fontconfig opencl"
+IUSE="dv fontconfig harfbuzz jpeg opencl openexr truetype"
+
+REQUIRED_USE="
+	fontconfig? ( truetype )
+	harfbuzz? ( truetype )
+	"
 
 DEPEND="
 	~dev-cpp/ETL-${PV}
 	>=dev-cpp/glibmm-2.4:2
 	dev-cpp/libxmlpp:2.6
-	dev-libs/boost:=
+	dev-libs/glib:2
+	dev-libs/libltdl
 	dev-libs/libsigc++:2
+	media-gfx/imagemagick:=[cxx]
+	media-libs/libmng:=
 	media-libs/libpng:=
-	media-libs/mlt:=
-	sci-libs/fftw:3.0
+	<media-libs/mlt-7.0.0
+	media-video/ffmpeg:=
+	sci-libs/fftw:3.0=
 	sys-libs/zlib:=
-	x11-libs/cairo:=
-	x11-libs/pango:=
-	ffmpeg? ( media-video/ffmpeg:= )
 	fontconfig? ( media-libs/fontconfig )
 	jpeg? ( virtual/jpeg )
-	opencl? ( dev-libs/ocl-icd )
-	openexr? ( media-libs/openexr:= )
-	truetype? ( media-libs/freetype:= )
+	openexr? (
+		media-libs/ilmbase:=
+		media-libs/openexr:0=
+	)
+	truetype? (
+		media-libs/freetype
+	)
+	harfbuzz? (
+		dev-libs/fribidi
+		media-libs/harfbuzz:=
+	)
 	"
-RDEPEND="${DEPEND}
-	dv? ( media-libs/libdv:= )
-	imagemagick? ( media-gfx/imagemagick:= )
+RDEPEND="${DEPEND}"
+BDEPEND="
+	>=dev-util/intltool-0.35.0
+	sys-devel/libtool
+	opencl? ( virtual/opencl )
 	"
 
 PATCHES=(
@@ -56,12 +72,13 @@ src_prepare() {
 
 src_configure() {
 	econf \
-		$(use_with ffmpeg) \
+		--with-imagemagick \
+		--with-ffmpeg \
 		$(use_with fontconfig) \
-		$(use_with imagemagick) \
 		$(use_with dv libdv) \
 		$(use_with openexr ) \
 		$(use_with truetype freetype) \
+		$(use_with harfbuzz) \
 		$(use_with jpeg) \
 		$(use_with opencl)
 }

@@ -9,7 +9,7 @@
 
 EAPI=7
 
-inherit autotools eutils multilib flag-o-matic xdg-utils
+inherit autotools xdg-utils
 
 DESCRIPTION="Vector animation studio"
 HOMEPAGE="https://www.synfig.org"

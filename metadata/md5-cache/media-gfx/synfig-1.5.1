@@ -1,0 +1,16 @@
+BDEPEND=>=dev-util/intltool-0.35.0 sys-devel/libtool opencl? ( virtual/opencl ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure install prepare
+DEPEND=~dev-cpp/ETL-1.5.1 >=dev-cpp/glibmm-2.4:2 dev-cpp/libxmlpp:2.6 dev-libs/glib:2 dev-libs/libltdl dev-libs/libsigc++:2 media-gfx/imagemagick:=[cxx] media-libs/libmng:= media-libs/libpng:= <media-libs/mlt-7.0.0 media-video/ffmpeg:= sci-libs/fftw:3.0= sys-libs/zlib:= fontconfig? ( media-libs/fontconfig ) jpeg? ( virtual/jpeg ) openexr? ( media-libs/ilmbase:= media-libs/openexr:0= ) truetype? ( media-libs/freetype ) harfbuzz? ( dev-libs/fribidi media-libs/harfbuzz:= )
+DESCRIPTION=Film-Quality Vector Animation (core engine)
+EAPI=7
+HOMEPAGE=http://www.synfig.org/
+INHERIT=autotools
+IUSE=dv fontconfig harfbuzz jpeg opencl openexr truetype
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=~dev-cpp/ETL-1.5.1 >=dev-cpp/glibmm-2.4:2 dev-cpp/libxmlpp:2.6 dev-libs/glib:2 dev-libs/libltdl dev-libs/libsigc++:2 media-gfx/imagemagick:=[cxx] media-libs/libmng:= media-libs/libpng:= <media-libs/mlt-7.0.0 media-video/ffmpeg:= sci-libs/fftw:3.0= sys-libs/zlib:= fontconfig? ( media-libs/fontconfig ) jpeg? ( virtual/jpeg ) openexr? ( media-libs/ilmbase:= media-libs/openexr:0= ) truetype? ( media-libs/freetype ) harfbuzz? ( dev-libs/fribidi media-libs/harfbuzz:= )
+REQUIRED_USE=fontconfig? ( truetype ) harfbuzz? ( truetype )
+SLOT=0
+SRC_URI=https://github.com/synfig/synfig/releases/download/v1.5.1/synfig-1.5.1.tar.gz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf
+_md5_=69f0656b7dc8fd3498f8fbc50f0f2ecd

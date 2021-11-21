@@ -1,0 +1,15 @@
+BDEPEND=virtual/pkgconfig sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.2-r1:1.16 ) >=sys-devel/autoconf-2.69 >=sys-devel/libtool-2.4
+DEFINED_PHASES=configure install postinst postrm prepare
+DEPEND=dev-cpp/atkmm:0 dev-cpp/cairomm:0 ~dev-cpp/ETL-1.5.1 dev-cpp/glibmm:2 dev-cpp/gtkmm:3.0 dev-cpp/libxmlpp:2.6 dev-cpp/pangomm:1.4 dev-libs/glib:2 dev-libs/libsigc++:2 media-gfx/synfig media-libs/mlt x11-libs/cairo x11-libs/gtk+:3 fontconfig? ( media-gfx/synfig[fontconfig] media-libs/fontconfig ) jack? ( virtual/jack )
+DESCRIPTION=Vector animation studio
+EAPI=8
+HOMEPAGE=https://www.synfig.org
+INHERIT=autotools xdg-utils
+IUSE=fontconfig jack
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2+ CC-BY-3.0
+RDEPEND=dev-cpp/atkmm:0 dev-cpp/cairomm:0 ~dev-cpp/ETL-1.5.1 dev-cpp/glibmm:2 dev-cpp/gtkmm:3.0 dev-cpp/libxmlpp:2.6 dev-cpp/pangomm:1.4 dev-libs/glib:2 dev-libs/libsigc++:2 media-gfx/synfig media-libs/mlt x11-libs/cairo x11-libs/gtk+:3 fontconfig? ( media-gfx/synfig[fontconfig] media-libs/fontconfig ) jack? ( virtual/jack )
+SLOT=0
+SRC_URI=https://github.com/synfig/synfig/releases/download/v1.5.1/synfigstudio-1.5.1.tar.gz
+_eclasses_=gnuconfig	262062cef0ba4f22b397193da514a350	toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	libtool	241a8f577b9781a42a7421e53448a44e	autotools	c9df06c186913b43eb211100ef5fe2cf	xdg-utils	4f29a8b760a594a212abe9c2ba957c31
+_md5_=ebd15975356063c57ed14f732b944c3f

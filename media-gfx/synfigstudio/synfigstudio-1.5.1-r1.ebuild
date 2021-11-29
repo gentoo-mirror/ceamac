@@ -32,7 +32,7 @@ DEPEND="
 	dev-libs/glib:2
 	dev-libs/libsigc++:2
 	media-gfx/synfig
-	media-libs/mlt
+	media-libs/mlt:=
 	x11-libs/cairo
 	x11-libs/gtk+:3
 	fontconfig? (

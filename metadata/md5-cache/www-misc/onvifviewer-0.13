@@ -1,0 +1,15 @@
+BDEPEND=dev-util/ninja >=dev-util/cmake-3.20.5
+DEFINED_PHASES=compile configure install postinst postrm prepare test
+DEPEND=kde-frameworks/extra-cmake-modules:5 >=net-libs/kdsoap-1.8.50:= net-libs/kdsoap-ws-discovery-client dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 dev-qt/qtnetwork:5 dev-qt/qtdeclarative:5 kde-frameworks/kcoreaddons:5 kde-frameworks/ki18n:5 kde-frameworks/kxmlgui:5
+DESCRIPTION=Viewer for IP cameras ONVIF
+EAPI=7
+HOMEPAGE=https://gitlab.com/caspermeijn/onvifviewer/
+INHERIT=cmake xdg-utils
+KEYWORDS=~amd64
+LICENSE=GPL-3
+RDEPEND=kde-frameworks/extra-cmake-modules:5 >=net-libs/kdsoap-1.8.50:= net-libs/kdsoap-ws-discovery-client dev-qt/qtcore:5 dev-qt/qtgui:5 dev-qt/qtwidgets:5 dev-qt/qtnetwork:5 dev-qt/qtdeclarative:5 kde-frameworks/kcoreaddons:5 kde-frameworks/ki18n:5 kde-frameworks/kxmlgui:5
+RESTRICT=primaryuri test
+SLOT=0
+SRC_URI=https://gitlab.com/caspermeijn/onvifviewer/-/archive/v0.13/onvifviewer-v0.13.tar.gz
+_eclasses_=toolchain-funcs	9ea1c67b6f8315fdc2568abb674519aa	multilib	4b66d835ec72e021e359bb81eacfe988	edos2unix	33e347e171066657f91f8b0c72ec8773	strip-linguas	ac3ee41ee2d31d8c41a77c0838320cc7	wrapper	4251d4c84c25f59094fd557e0063a974	eutils	dab5d8ec471d025b79c9e6906bcf3bff	flag-o-matic	4134b5c0fb719b9161d10bdaba9e09e5	multiprocessing	61c959fc55c15c00bbb1079d6a71370b	ninja-utils	a4dab848a4490e8e48cf0baab3e61bc2	xdg-utils	4f29a8b760a594a212abe9c2ba957c31	cmake	11fee991ab428a3370e5c20fa8231fb6
+_md5_=b51ba608992a559a7c51e0be023059c1

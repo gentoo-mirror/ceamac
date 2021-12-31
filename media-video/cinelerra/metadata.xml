@@ -5,10 +5,6 @@
 	<email>ceamac.paragon@gmail.com</email>
 	<description>Primary maintainer</description>
 </maintainer>
-<longdescription>
-	Cinelerra is a video editor.
-	This is a fork that seems to be actively maintained.
-</longdescription>
 <use>
 	<flag name="lv2">Enables lv2 audio filter wrapper</flag>
 	<flag name="shuttle">Support shuttle device</flag>

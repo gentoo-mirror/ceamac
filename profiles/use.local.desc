@@ -4,5 +4,5 @@
 
 media-gfx/synfig:harfbuzz - Enable support for OpenType Layout (media-libs/harfbuzz)
 media-gfx/synfig:opencl - Enable OpenCL
-media-video/cinelerra:lv2 - Enables lv2 audio filter wrapper
-media-video/cinelerra:shuttle - Support shuttle device
+media-video/cinelerra-gg:lv2 - Enables lv2 audio filter wrapper
+media-video/cinelerra-gg:shuttle - Support shuttle device

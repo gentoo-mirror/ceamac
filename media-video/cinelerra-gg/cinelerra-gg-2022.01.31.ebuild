@@ -1,12 +1,14 @@
-# Copyright 2020-2021 Gentoo Authors
+# Copyright 2020-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=7
 inherit autotools flag-o-matic
 
+MY_PV=${PV//./}
+
 DESCRIPTION="The most advanced non-linear video editor and compositor"
 HOMEPAGE="http://www.cinelerra-gg.org/"
-SRC_URI="https://cinelerra-gg.org/download/pkgs/src/cin_${PV}-src.tgz"
+SRC_URI="https://cinelerra-gg.org/download/pkgs/src/cin_5.1.${MY_PV}.src.tgz"
 RESTRICT="primaryuri"
 
 LICENSE="GPL-2"
@@ -115,8 +117,9 @@ src_configure() {
 src_install() {
 	emake -j1 DESTDIR="${D}" install
 
-	readarray -d '' HTML_DOCS < <(find doc/ \( -name \*.png -o -name \*.html -o -name \*.texi -o -name \*.swd \) -print0)
-	einstalldocs
+	dodoc README
+	docinto html
+	dodoc -r doc/*.png doc/*.html doc/*.texi doc/*.pdf
 
 	rm -rf "${ED}"/usr/include || die
 	find "${ED}" -name '*.la' -type f -delete || die

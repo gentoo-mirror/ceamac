@@ -1,4 +1,4 @@
-# Copyright 1999-2021 Gentoo Authors
+# Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 #Ebuild based on the booboo overlay version
@@ -13,14 +13,17 @@ inherit autotools
 
 DESCRIPTION="Film-Quality Vector Animation (core engine)"
 HOMEPAGE="http://www.synfig.org/"
-SRC_URI="https://github.com/synfig/synfig/archive/refs/tags/v${PV}.tar.gz -> synfigstudio-${PV}.tar.gz"
+SRC_URI="https://github.com/synfig/synfig/releases/download/v${PV}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="dv fontconfig jpeg opencl openexr truetype"
+IUSE="dv fontconfig harfbuzz jpeg opencl openexr truetype"
 
-REQUIRED_USE="fontconfig? ( truetype )"
+REQUIRED_USE="
+	fontconfig? ( truetype )
+	harfbuzz? ( truetype )
+	"
 
 DEPEND="
 	~dev-cpp/ETL-${PV}
@@ -32,17 +35,20 @@ DEPEND="
 	media-gfx/imagemagick:=[cxx]
 	media-libs/libmng:=
 	media-libs/libpng:=
-	<media-libs/mlt-7.0.0
+	media-libs/mlt:=
 	media-video/ffmpeg:=
 	sci-libs/fftw:3.0=
 	sys-libs/zlib:=
 	fontconfig? ( media-libs/fontconfig )
 	jpeg? ( virtual/jpeg )
-	openexr? (
-		media-libs/ilmbase:=
-		media-libs/openexr:=
+	openexr? ( media-libs/openexr:0= )
+	truetype? (
+		media-libs/freetype
 	)
-	truetype? ( media-libs/freetype )
+	harfbuzz? (
+		dev-libs/fribidi
+		media-libs/harfbuzz:=
+	)
 	"
 RDEPEND="${DEPEND}"
 BDEPEND="
@@ -52,10 +58,8 @@ BDEPEND="
 	"
 
 PATCHES=(
-	"${FILESDIR}"/synfigstudio-1.5.0-fix-cflags.patch
+	"${FILESDIR}"/${PN}-1.4.0-fix-cflags.patch
 )
-
-S="${WORKDIR}/synfig-${PV}/synfig-core"
 
 src_prepare() {
 	default
@@ -71,6 +75,7 @@ src_configure() {
 		$(use_with dv libdv) \
 		$(use_with openexr ) \
 		$(use_with truetype freetype) \
+		$(use_with harfbuzz) \
 		$(use_with jpeg) \
 		$(use_with opencl)
 }

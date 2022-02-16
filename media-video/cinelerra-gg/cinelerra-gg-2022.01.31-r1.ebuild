@@ -23,7 +23,6 @@ RDEPEND="
 	media-libs/flac
 	>=media-libs/freetype-2
 	media-libs/fontconfig
-	media-libs/ilmbase:=
 	media-libs/jbigkit:=
 	media-libs/libaom:=
 	media-libs/libdv
@@ -34,7 +33,6 @@ RDEPEND="
 	>=media-libs/libvorbis-1.3
 	media-libs/libvpx:=
 	media-libs/libwebp:=
-	>=media-libs/openexr-1.5:=
 	media-libs/opus
 	media-libs/tiff
 	media-sound/pulseaudio
@@ -84,8 +82,6 @@ S="${WORKDIR}/cinelerra-5.1"
 src_prepare() {
 	default
 	eautoreconf
-
-	cp "${FILESDIR}"/openexr-2.4.1.patch1 ./thirdparty/src/ || die
 }
 
 src_configure() {

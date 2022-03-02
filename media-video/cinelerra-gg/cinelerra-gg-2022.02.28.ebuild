@@ -70,12 +70,14 @@ RDEPEND="
 		x11-libs/gdk-pixbuf:2
 		x11-libs/gtk+:2
 		x11-libs/pango
-	)"
-DEPEND="${RDEPEND}
+	)
+"
+DEPEND="${RDEPEND}"
+BDEPEND="
 	app-arch/xz-utils
 	dev-lang/yasm
-	virtual/pkgconfig"
-BDEPEND=""
+	virtual/pkgconfig
+"
 
 S="${WORKDIR}/cinelerra-5.1"
 

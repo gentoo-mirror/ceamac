@@ -7,7 +7,7 @@ inherit autotools flag-o-matic
 MY_PV=${PV//./}
 
 DESCRIPTION="The most advanced non-linear video editor and compositor"
-HOMEPAGE="http://www.cinelerra-gg.org/"
+HOMEPAGE="https://www.cinelerra-gg.org/"
 SRC_URI="https://cinelerra-gg.org/download/pkgs/src/cin_5.1.${MY_PV}.src.tgz"
 RESTRICT="primaryuri"
 
@@ -19,6 +19,7 @@ IUSE="alsa debug dvb ieee1394 lv2 oss shuttle usb v4l"
 RDEPEND="
 	app-arch/bzip2
 	app-arch/xz-utils
+	media-libs/libjpeg-turbo:=
 	media-libs/dav1d:=
 	media-libs/flac
 	>=media-libs/freetype-2
@@ -48,7 +49,6 @@ RDEPEND="
 	x11-libs/libXinerama
 	x11-libs/libXv
 	virtual/glu
-	virtual/jpeg:0
 	virtual/opengl
 	virtual/libusb:1
 	alsa? ( media-libs/alsa-lib )

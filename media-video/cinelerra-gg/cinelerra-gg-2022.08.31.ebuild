@@ -58,7 +58,7 @@ RDEPEND="
 		>=sys-libs/libraw1394-1.2.0:=
 	)
 	lv2? (
-		dev-libs/atk
+		app-accessibility/at-spi2-core
 		dev-libs/glib:2
 		dev-libs/serd
 		dev-libs/sord

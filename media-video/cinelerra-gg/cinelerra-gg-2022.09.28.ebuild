@@ -8,7 +8,7 @@ MY_PV=${PV//./}
 
 DESCRIPTION="The most advanced non-linear video editor and compositor"
 HOMEPAGE="https://www.cinelerra-gg.org/"
-SRC_URI="https://cinelerra-gg.org/download/pkgs/src/cin_5.1.${MY_PV}.src.tgz"
+SRC_URI="https://cinelerra-gg.org/download/pkgs/src/cin_5.1.${MY_PV}-src.tgz"
 RESTRICT="primaryuri"
 
 LICENSE="GPL-2"
@@ -21,7 +21,7 @@ RDEPEND="
 	app-arch/xz-utils
 	media-libs/libjpeg-turbo:=
 	media-libs/dav1d:=
-	media-libs/flac
+	media-libs/flac:=
 	>=media-libs/freetype-2
 	media-libs/fontconfig
 	media-libs/jbigkit:=
@@ -40,7 +40,7 @@ RDEPEND="
 	sci-libs/fftw:3.0=
 	sys-libs/zlib
 	sys-process/numactl
-	x11-libs/libva:=
+	media-libs/libva:=
 	x11-libs/libvdpau
 	x11-libs/libX11
 	x11-libs/libXext
@@ -58,7 +58,7 @@ RDEPEND="
 		>=sys-libs/libraw1394-1.2.0:=
 	)
 	lv2? (
-		dev-libs/atk
+		app-accessibility/at-spi2-core
 		dev-libs/glib:2
 		dev-libs/serd
 		dev-libs/sord

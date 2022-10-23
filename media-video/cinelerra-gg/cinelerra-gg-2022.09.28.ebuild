@@ -32,6 +32,7 @@ RDEPEND="
 	media-libs/libsndfile
 	>=media-libs/libtheora-1.1
 	>=media-libs/libvorbis-1.3
+	media-libs/libva:=
 	media-libs/libvpx:=
 	media-libs/libwebp:=
 	media-libs/opus
@@ -40,7 +41,6 @@ RDEPEND="
 	sci-libs/fftw:3.0=
 	sys-libs/zlib
 	sys-process/numactl
-	media-libs/libva:=
 	x11-libs/libvdpau
 	x11-libs/libX11
 	x11-libs/libXext

@@ -21,7 +21,7 @@ RDEPEND="
 	app-arch/xz-utils
 	media-libs/libjpeg-turbo:=
 	media-libs/dav1d:=
-	media-libs/flac
+	media-libs/flac:=
 	>=media-libs/freetype-2
 	media-libs/fontconfig
 	media-libs/jbigkit:=

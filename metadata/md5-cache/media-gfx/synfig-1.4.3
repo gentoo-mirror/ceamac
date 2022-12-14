@@ -1,0 +1,15 @@
+BDEPEND=>=dev-util/intltool-0.35.0 sys-devel/libtool opencl? ( virtual/opencl ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=sys-devel/automake-1.16.5:1.16 ) >=sys-devel/autoconf-2.71-r5 >=sys-devel/libtool-2.4.7
+DEFINED_PHASES=configure install prepare
+DEPEND=~dev-cpp/ETL-1.4.3 >=dev-cpp/glibmm-2.4:2 dev-cpp/libxmlpp:2.6 dev-libs/glib:2 dev-libs/libltdl dev-libs/libsigc++:2 media-gfx/imagemagick:=[cxx] media-libs/libmng:= media-libs/libpng:= media-libs/mlt:= media-video/ffmpeg:= sci-libs/fftw:3.0= sys-libs/zlib:= x11-libs/cairo fontconfig? ( media-libs/fontconfig media-libs/freetype x11-libs/pango ) jpeg? ( media-libs/libjpeg-turbo:= ) openexr? ( media-libs/openexr:0= )
+DESCRIPTION=Film-Quality Vector Animation (core engine)
+EAPI=8
+HOMEPAGE=https://www.synfig.org/
+INHERIT=autotools
+IUSE=dv fontconfig jpeg opencl openexr
+KEYWORDS=~amd64 ~x86
+LICENSE=GPL-2
+RDEPEND=~dev-cpp/ETL-1.4.3 >=dev-cpp/glibmm-2.4:2 dev-cpp/libxmlpp:2.6 dev-libs/glib:2 dev-libs/libltdl dev-libs/libsigc++:2 media-gfx/imagemagick:=[cxx] media-libs/libmng:= media-libs/libpng:= media-libs/mlt:= media-video/ffmpeg:= sci-libs/fftw:3.0= sys-libs/zlib:= x11-libs/cairo fontconfig? ( media-libs/fontconfig media-libs/freetype x11-libs/pango ) jpeg? ( media-libs/libjpeg-turbo:= ) openexr? ( media-libs/openexr:0= )
+SLOT=0
+SRC_URI=https://github.com/synfig/synfig/releases/download/v1.4.3/synfig-1.4.3.tar.gz
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	37a4612ce5522df5a100359a8dbc8491	multilib	5ca4e49abed8e3a2f7b56920eadee157	libtool	241a8f577b9781a42a7421e53448a44e	autotools	6dcd6b6a486e79928e1243ff9ba41fcc
+_md5_=c7562c193cd6c1cca311de3098a0675d

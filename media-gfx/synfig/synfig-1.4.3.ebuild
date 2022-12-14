@@ -1,15 +1,9 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-#Ebuild based on the booboo overlay version
-
-EAPI=7
+EAPI=8
 
 inherit autotools
-
-# Original TODO from bgo-overlay
-# Todo: enable OpenGL (currently not compiling)
-#       enable OpenCl, needs check whether OpenCL is actually usable
 
 DESCRIPTION="Film-Quality Vector Animation (core engine)"
 HOMEPAGE="https://www.synfig.org/"
@@ -18,12 +12,7 @@ SRC_URI="https://github.com/synfig/synfig/releases/download/v${PV}/${P}.tar.gz"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="dv fontconfig harfbuzz jpeg opencl openexr truetype"
-
-REQUIRED_USE="
-	fontconfig? ( truetype )
-	harfbuzz? ( truetype )
-	"
+IUSE="dv fontconfig jpeg opencl openexr"
 
 DEPEND="
 	~dev-cpp/ETL-${PV}
@@ -39,26 +28,25 @@ DEPEND="
 	media-video/ffmpeg:=
 	sci-libs/fftw:3.0=
 	sys-libs/zlib:=
-	fontconfig? ( media-libs/fontconfig )
+	x11-libs/cairo
+	fontconfig? (
+		media-libs/fontconfig
+		media-libs/freetype
+		x11-libs/pango
+	)
 	jpeg? ( media-libs/libjpeg-turbo:= )
 	openexr? ( media-libs/openexr:0= )
-	truetype? (
-		media-libs/freetype
-	)
-	harfbuzz? (
-		dev-libs/fribidi
-		media-libs/harfbuzz:=
-	)
-	"
+"
 RDEPEND="${DEPEND}"
 BDEPEND="
 	>=dev-util/intltool-0.35.0
 	sys-devel/libtool
 	opencl? ( virtual/opencl )
-	"
+"
 
 PATCHES=(
 	"${FILESDIR}"/${PN}-1.4.0-fix-cflags.patch
+	"${FILESDIR}"/${P}-mlt++-7.patch
 )
 
 src_prepare() {
@@ -74,18 +62,17 @@ src_configure() {
 		$(use_with fontconfig) \
 		$(use_with dv libdv) \
 		$(use_with openexr ) \
-		$(use_with truetype freetype) \
-		$(use_with harfbuzz) \
+		$(use_with fontconfig freetype) \
 		$(use_with jpeg) \
 		$(use_with opencl)
 }
 
 src_install() {
-	emake DESTDIR="${D}" install
-	dodoc AUTHORS NEWS README TODO
+	default
 
 	find "${ED}" -name '*.la' -delete || die
 
-	echo "LDPATH=\"${EPREFIX}/usr/$(get_libdir)/synfig/modules\"" > "${T}/99synfig"
-	doenvd "${T}/99synfig"
+	newenvd - 95synfig <<- EOF
+	LDPATH="${EPREFIX}/usr/$(get_libdir)/synfig/modules"
+	EOF
 }

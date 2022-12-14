@@ -1,0 +1,9 @@
+# Copyright 2022 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+# New entries go on top.
+
+# Viorel Munteanu <ceamac@gentoo.org> (2022-12-14)
+# dev-libs/opencl-icd-loader does not provide OpenCL.pc
+# so mask it for now
+media-gfx/synfig	opencl

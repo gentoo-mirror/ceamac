@@ -6,8 +6,8 @@ EAPI=7
 inherit autotools
 
 DESCRIPTION="ETL is a multi-platform class and template library"
-HOMEPAGE="http://synfig.org"
-SRC_URI="https://github.com/synfig/synfig/archive/refs/tags/v${PV}.tar.gz -> synfigstudio-${PV}.tar.gz"
+HOMEPAGE="https://www.synfig.org"
+SRC_URI="https://github.com/synfig/synfig/releases/download/v${PV}/${P}.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -17,13 +17,9 @@ IUSE=""
 DEPEND=""
 RDEPEND="${DEPEND}"
 
-RESTRICT=test
-
 PATCHES=(
-	"${FILESDIR}"/synfigstudio-1.5.0-fix-cflags.patch
+	"${FILESDIR}"/${PN}-1.4.1-fix-gcc-flags.patch
 )
-
-S="${WORKDIR}/synfig-${PV}/ETL"
 
 src_prepare() {
 	default

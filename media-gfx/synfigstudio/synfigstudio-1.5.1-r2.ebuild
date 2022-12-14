@@ -31,7 +31,7 @@ DEPEND="
 	dev-cpp/pangomm:1.4
 	dev-libs/glib:2
 	dev-libs/libsigc++:2
-	media-gfx/synfig
+	~media-gfx/synfig-${PV}
 	media-libs/mlt:=
 	x11-libs/cairo
 	x11-libs/gtk+:3

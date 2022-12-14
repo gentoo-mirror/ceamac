@@ -6,7 +6,7 @@ EAPI=7
 inherit autotools
 
 DESCRIPTION="ETL is a multi-platform class and template library"
-HOMEPAGE="http://synfig.org"
+HOMEPAGE="https://www.synfig.org"
 SRC_URI="https://github.com/synfig/synfig/releases/download/v${PV}/${P}.tar.gz"
 
 LICENSE="GPL-2"

@@ -1,0 +1,34 @@
+https://github.com/synfig/synfig/commit/29b9803c7ca2403db15725729589b9350322f6ce
+
+From 29b9803c7ca2403db15725729589b9350322f6ce Mon Sep 17 00:00:00 2001
+From: Konstantin Dmitriev <ksee.zelgadis@gmail.com>
+Date: Sun, 4 Dec 2022 12:04:41 +0700
+Subject: [PATCH] Added support MLT++-7 in Autotools (#2306)
+
+---
+ synfig-core/configure.ac | 11 ++++++++---
+ 1 file changed, 8 insertions(+), 3 deletions(-)
+
+diff --git a/synfig-core/configure.ac b/synfig-core/configure.ac
+index 419e47c960..641d38ce13 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -350,10 +350,15 @@ PKG_CHECK_MODULES(LIBPANGO, pango pangocairo,[
+ 	AC_MSG_ERROR([ ** You need to install pango])
+ ])
+ 
+-PKG_CHECK_MODULES(MLTPP, mlt++,,[
+-	AC_MSG_ERROR([ ** You need to install mlt++.])
++PKG_CHECK_MODULES(MLTPP, mlt++-7,[
++	CONFIG_DEPS="$CONFIG_DEPS mlt++-7"
++],[
++	PKG_CHECK_MODULES(MLTPP, mlt++,[
++		CONFIG_DEPS="$CONFIG_DEPS mlt++"
++	],[
++		AC_MSG_ERROR([ ** You need to install mlt++.])
++	])
+ ])
+-CONFIG_DEPS="$CONFIG_DEPS mlt++"
+ 
+ AX_BOOST_BASE([1.53.0],,AC_MSG_ERROR([ ** You need to install Boost >= 1.53.0]))
+ #AX_BOOST_SYSTEM

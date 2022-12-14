@@ -5,4 +5,7 @@
 	<email>ceamac@gentoo.org</email>
 	<description>Primary maintainer</description>
 </maintainer>
+<upstream>
+	<remote-id type="github">synfig/synfig</remote-id>
+</upstream>
 </pkgmetadata>

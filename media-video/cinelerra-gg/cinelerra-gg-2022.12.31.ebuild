@@ -9,7 +9,7 @@ MY_PV=${PV//./}
 DESCRIPTION="The most advanced non-linear video editor and compositor"
 HOMEPAGE="https://www.cinelerra-gg.org/"
 SRC_URI="https://cinelerra-gg.org/download/pkgs/src/cin_5.1.${MY_PV}-src.tgz"
-RESTRICT="primaryuri"
+RESTRICT="mirror"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -19,6 +19,7 @@ IUSE="alsa debug dvb ieee1394 lv2 oss shuttle usb v4l"
 RDEPEND="
 	app-arch/bzip2
 	app-arch/xz-utils
+	dev-libs/imath:3=
 	media-libs/libjpeg-turbo:=
 	media-libs/dav1d:=
 	media-libs/flac:=
@@ -29,12 +30,14 @@ RDEPEND="
 	media-libs/libdv
 	>=media-libs/libogg-1.2
 	media-libs/libpng:0=
+	media-libs/libpulse
 	media-libs/libsndfile
 	>=media-libs/libtheora-1.1
 	>=media-libs/libvorbis-1.3
 	media-libs/libva:=
 	media-libs/libvpx:=
 	media-libs/libwebp:=
+	media-libs/openexr:=
 	media-libs/opus
 	media-libs/tiff
 	media-sound/pulseaudio
@@ -58,7 +61,7 @@ RDEPEND="
 		>=sys-libs/libraw1394-1.2.0:=
 	)
 	lv2? (
-		app-accessibility/at-spi2-core
+		app-accessibility/at-spi2-core:2
 		dev-libs/glib:2
 		dev-libs/serd
 		dev-libs/sord

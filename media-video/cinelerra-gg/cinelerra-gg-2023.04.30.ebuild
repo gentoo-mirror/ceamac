@@ -4,7 +4,8 @@
 EAPI=7
 inherit autotools flag-o-matic
 
-MY_PV=${PV//./}
+MY_PV=${PV//.}
+MY_PV=${MY_PV/43/34}
 
 DESCRIPTION="The most advanced non-linear video editor and compositor"
 HOMEPAGE="https://www.cinelerra-gg.org/"

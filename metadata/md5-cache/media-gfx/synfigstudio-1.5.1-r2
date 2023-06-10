@@ -11,5 +11,5 @@ LICENSE=GPL-2+ CC-BY-3.0
 RDEPEND=dev-cpp/atkmm:0 dev-cpp/cairomm:0 ~dev-cpp/ETL-1.5.1 dev-cpp/glibmm:2 dev-cpp/gtkmm:3.0 dev-cpp/libxmlpp:2.6 dev-cpp/pangomm:1.4 dev-libs/glib:2 dev-libs/libsigc++:2 ~media-gfx/synfig-1.5.1 media-libs/mlt:= x11-libs/cairo x11-libs/gtk+:3 fontconfig? ( media-gfx/synfig[fontconfig] media-libs/fontconfig ) jack? ( virtual/jack )
 SLOT=0
 SRC_URI=https://github.com/synfig/synfig/releases/download/v1.5.1/synfigstudio-1.5.1.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	14a8ae365191b518fad51caad7a08f3e	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	xdg-utils	baea6080dd821f5562d715887954c9d3
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	513c31b3346458ed1f3878b57da6d61c	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	6ae9a4347149b19a112caa1182d03bde	xdg-utils	baea6080dd821f5562d715887954c9d3
 _md5_=37a35a80883fab1db9637e79e9964185

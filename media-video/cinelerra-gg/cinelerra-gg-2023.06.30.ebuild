@@ -40,7 +40,6 @@ RDEPEND="
 	media-libs/openexr:=
 	media-libs/opus
 	media-libs/tiff
-	media-sound/pulseaudio
 	sci-libs/fftw:3.0=
 	sys-libs/zlib
 	sys-process/numactl

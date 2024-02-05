@@ -1,20 +1,21 @@
 # Copyright 2020-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI=7
-inherit autotools flag-o-matic
+EAPI=8
+inherit autotools xdg
 
 MY_PV=${PV//./}
 
 DESCRIPTION="The most advanced non-linear video editor and compositor"
 HOMEPAGE="https://www.cinelerra-gg.org/"
 SRC_URI="https://cinelerra-gg.org/download/pkgs/src/cin_5.1.${MY_PV}-src.tgz"
-RESTRICT="mirror"
+S="${WORKDIR}/cinelerra-5.1"
 
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE="alsa debug dvb ieee1394 lv2 oss shuttle usb v4l"
+RESTRICT="mirror"
 
 RDEPEND="
 	app-arch/bzip2
@@ -39,7 +40,7 @@ RDEPEND="
 	media-libs/libwebp:=
 	media-libs/openexr:=
 	media-libs/opus
-	media-libs/tiff
+	media-libs/tiff:=
 	sci-libs/fftw:3.0=
 	sys-libs/zlib
 	sys-process/numactl
@@ -81,37 +82,34 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
-S="${WORKDIR}/cinelerra-5.1"
-
 src_prepare() {
 	default
 	eautoreconf
 }
 
 src_configure() {
-	# this doesn't really work
-	append-ldflags -Wl,-z,noexecstack #212959
+	local myconf=(
+		--enable-ffmpeg
+		--without-esound
+		--with-gl
+		--with-xft
+		--with-dv
+		--with-openexr
 
-	local myconf
-	use debug && myconf='--enable-x-error-output'
+		$(use_with oss)
+		$(use_with alsa)
+		$(use_with ieee1394 firewire)
+		$(use_with dvb)
+		$(use_with v4l video4linux2)
+		$(use_with usb shuttle_usb)
+		$(use_with shuttle)
+		$(use_with lv2)
 
-	econf \
-		--enable-ffmpeg \
-		$(use_with oss) \
-		$(use_with alsa) \
-		--without-esound \
-		$(use_with ieee1394 firewire) \
-		--with-gl \
-		--with-xft \
-		--with-dv \
-		$(use_with dvb) \
-		$(use_with v4l video4linux2) \
-		$(use_with usb shuttle_usb) \
-		$(use_with shuttle) \
-		$(use_with lv2) \
-		--with-openexr \
-		--with-plugin-dir="${EPREFIX}/usr/$(get_libdir)/${PN}" \
-		${myconf}
+		--with-plugin-dir="${EPREFIX}/usr/$(get_libdir)/${PN}"
+	)
+	use debug && myconf+=( '--enable-x-error-output' )
+
+	econf "${myconf[@]}"
 }
 
 src_install() {
@@ -120,7 +118,4 @@ src_install() {
 	dodoc README
 	docinto html
 	dodoc -r doc/*.png doc/*.html doc/*.texi doc/*.pdf
-
-	rm -rf "${ED}"/usr/include || die
-	find "${ED}" -name '*.la' -type f -delete || die
 }

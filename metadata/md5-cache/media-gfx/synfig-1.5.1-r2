@@ -1,4 +1,4 @@
-BDEPEND=>=dev-util/intltool-0.35.0 sys-devel/libtool opencl? ( virtual/opencl ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7
+BDEPEND=>=dev-util/intltool-0.35.0 sys-devel/libtool opencl? ( virtual/opencl ) sys-devel/gnuconfig >=app-portage/elt-patches-20170815 || ( >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 >=dev-build/autoconf-2.71-r6:2.71 ) >=dev-build/libtool-2.4.7-r3
 DEFINED_PHASES=configure install prepare
 DEPEND=~dev-cpp/ETL-1.5.1 >=dev-cpp/glibmm-2.4:2 dev-cpp/libxmlpp:2.6 dev-libs/glib:2 dev-libs/libltdl dev-libs/libsigc++:2 media-gfx/imagemagick:=[cxx] media-libs/libmng:= media-libs/libpng:= media-libs/mlt:= media-video/ffmpeg:= sci-libs/fftw:3.0= sys-libs/zlib:= fontconfig? ( media-libs/fontconfig ) jpeg? ( media-libs/libjpeg-turbo:= ) openexr? ( media-libs/openexr:0= ) truetype? ( media-libs/freetype ) harfbuzz? ( dev-libs/fribidi media-libs/harfbuzz:= )
 DESCRIPTION=Film-Quality Vector Animation (core engine)
@@ -12,5 +12,5 @@ RDEPEND=~dev-cpp/ETL-1.5.1 >=dev-cpp/glibmm-2.4:2 dev-cpp/libxmlpp:2.6 dev-libs/
 REQUIRED_USE=fontconfig? ( truetype ) harfbuzz? ( truetype )
 SLOT=0
 SRC_URI=https://github.com/synfig/synfig/releases/download/v1.5.1/synfig-1.5.1.tar.gz
-_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	e4cf390b19033d5ca443765bc8537b81
+_eclasses_=gnuconfig	b6b3e92f8b8c996400074b5f61a59256	toolchain-funcs	e56c7649b804f051623c8bc1a1c44084	multilib	c19072c3cd7ac5cb21de013f7e9832e0	libtool	9d3a9a889a6fa62ae794f817c156491b	autotools	3af8f60c4bdb23e738db506a630898ee
 _md5_=c1ce141c20bf6696e72a4364cdb590c5

@@ -83,6 +83,7 @@ BDEPEND="
 "
 
 src_prepare() {
+	cp "${FILESDIR}"/mjpegtools-2.1.0.patch9 thirdparty/src/ || die
 	default
 	eautoreconf
 }

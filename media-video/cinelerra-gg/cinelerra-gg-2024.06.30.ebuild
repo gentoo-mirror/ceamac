@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-inherit autotools xdg
+inherit autotools flag-o-matic xdg
 
 MY_PV=${PV//./}
 
@@ -89,6 +89,9 @@ src_prepare() {
 }
 
 src_configure() {
+	# bug #924419
+	append-ldflags "-Wl,--copy-dt-needed-entries"
+
 	local myconf=(
 		--enable-ffmpeg
 		--without-esound

@@ -1,8 +1,8 @@
-# Copyright 2020-2024 Gentoo Authors
+# Copyright 2020-2025 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
 EAPI=8
-inherit autotools xdg
+inherit autotools flag-o-matic xdg
 
 MY_PV=${PV//./}
 
@@ -14,7 +14,7 @@ S="${WORKDIR}/cinelerra-5.1"
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
-IUSE="alsa debug dvb ieee1394 lv2 oss shuttle usb v4l"
+IUSE="alsa debug dvb ieee1394 lv2 oss shuttle usb v4l vdpau"
 RESTRICT="mirror"
 
 RDEPEND="
@@ -44,7 +44,6 @@ RDEPEND="
 	sci-libs/fftw:3.0=
 	sys-libs/zlib
 	sys-process/numactl
-	x11-libs/libvdpau
 	x11-libs/libX11
 	x11-libs/libXext
 	x11-libs/libXfixes
@@ -74,6 +73,9 @@ RDEPEND="
 		x11-libs/gtk+:2
 		x11-libs/pango
 	)
+	vdpau? (
+		x11-libs/libvdpau
+	)
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
@@ -89,6 +91,9 @@ src_prepare() {
 }
 
 src_configure() {
+	# bug #924419
+	append-ldflags "-Wl,--copy-dt-needed-entries"
+
 	local myconf=(
 		--enable-ffmpeg
 		--without-esound
@@ -102,6 +107,7 @@ src_configure() {
 		$(use_with ieee1394 firewire)
 		$(use_with dvb)
 		$(use_with v4l video4linux2)
+		$(use_with vdpau)
 		$(use_with usb shuttle_usb)
 		$(use_with shuttle)
 		$(use_with lv2)
